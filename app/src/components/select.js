@@ -8,6 +8,8 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { Typography } from '@material-ui/core';
+import SwitchLabels from './selecionar_caracteristicas';
 
 const styles = theme => ({
   root: {
@@ -24,24 +26,30 @@ const styles = theme => ({
 
 const ranges = [
   {
-    value: 'amarelo',
-    label: 'amarelo',
+    value: 'Administrativo',
+    label: 'Administrativo',
   },
   {
-    value: 'vermelho',
-    label: 'vermelho',
+    value: 'Pedagogico',
+    label: 'Pedagogico',
   },
   {
-    value: 'preto',
-    label: 'preto',
+    value: 'Faxina',
+    label: 'Faxina',
+  },
+];
+const rangesCategoria = [
+  {
+    value: 'Material de escritório',
+    label: 'Material de escritório',
   },
   {
-    value: 'azul',
-    label: 'azul',
+    value: 'Pereciveis',
+    label: 'Pereciveis',
   },
   {
-    value: 'branco',
-    label: 'branco',
+    value: 'Bens duraveis',
+    label: 'Bens duraveis',
   },
 ];
 
@@ -51,6 +59,7 @@ class OutlinedInputAdornments extends React.Component {
     password: '',
     weight: '',
     weightRange: '',
+    categoria: '',
     showPassword: false,
   };
 
@@ -76,17 +85,18 @@ class OutlinedInputAdornments extends React.Component {
             startAdornment: <InputAdornment position="start">Nome</InputAdornment>,
           }}
         />
-
+        <Typography component="p">
+            Adicione as especificações necessárias
+          </Typography>
         <TextField
           select
           className={classNames(classes.margin, classes.textField)}
           variant="outlined"
-          label="Cor do material"
+          label="Departamento"
           value={this.state.weightRange}
           onChange={this.handleChange('weightRange')}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">Cor</InputAdornment>,
-          }}
+          
+          
         >
           {ranges.map(option => (
             <MenuItem key={option.value} value={option.value}>
@@ -95,16 +105,22 @@ class OutlinedInputAdornments extends React.Component {
           ))}
         </TextField>
         <TextField
-          id="outlined-adornment-amount"
+          select
           className={classNames(classes.margin, classes.textField)}
           variant="outlined"
-          label="Quantidade"
-          value={this.state.amount}
-          onChange={this.handleChange('amount')}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">N</InputAdornment>,
-          }}
-        />
+          label="Categoria"
+          value={this.state.categoria}
+          onChange={this.handleChange('categoria')}
+          
+          
+        >
+          {rangesCategoria.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <SwitchLabels/>
 
 
         

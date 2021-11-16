@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -8,6 +9,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Icone_mais from './icone_mais';
+
+import Select from './select';
 
 const styles = {
   card: {
@@ -25,25 +29,20 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="teste_apagador.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Apagador
+        <Typography component="p">
+            Apagar/adicionar foto
           </Typography>
-          <Typography component="p">
-            Apagador de lousa de giz - grande - 2 unidades
-          </Typography>
+          <Icone_mais></Icone_mais>
+          <Select></Select>
+          
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Apagar
-        </Button>
-        <Button size="small" color="primary">
-          Editar
-        </Button>
+        
       </CardActions>
     </Card>
   );

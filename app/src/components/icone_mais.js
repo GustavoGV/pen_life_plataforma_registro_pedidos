@@ -28,7 +28,7 @@ function SimpleTooltips(props) {
         </IconButton>
       </Tooltip>
       <Tooltip title="Add" aria-label="Add">
-        <Fab color="primary" className={classes.fab}>
+        <Fab size="small" color="primary" className={classes.fab}>
           <AddIcon />
         </Fab>
       </Tooltip>
